@@ -1616,6 +1616,28 @@ styles:
                     }
                     #endif
 
+    tools-grid-buildings:
+        mix: space-tile
+        shaders:
+            blocks:
+                global: |
+                    #ifdef TANGRAM_FRAGMENT_SHADER
+                    bool grid(vec2 st, float res, float press) {
+                        vec2 grid = fract(st * res);
+                        return (grid.x < res * press) || (grid.y < res * press);
+                    }
+                    float TileGrid(float res) {
+                        vec2 st = getTileCoords() * 200. * res;
+                        float pct = 0.0;
+                        float press = 0.6 + (1.0 - fract(u_map_position.z)) * 0.1;
+                        if (grid(st, 0.1, press)) { pct += 0.75; }
+                        return pct;
+                    }
+                    float TileGrid() {
+                        return mix(TileGrid(1.), TileGrid(2.), fract(u_map_position.z));
+                    }
+                    #endif
+
     tools-grid-circle-on-grid:
         mix: space-tile
         shaders:
@@ -1800,7 +1822,7 @@ styles:
 
     lines-on-grid:
         base: polygons
-        mix: [tools-grid2, space-tile, tiling-brick, tiling-tile, shapes-circle]
+        mix: [tools-grid-buildings, space-tile, tiling-brick, tiling-tile, shapes-circle]
         # animated: true
         shaders:
             defines:
