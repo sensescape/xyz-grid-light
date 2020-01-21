@@ -248,7 +248,7 @@ layers:
                 style: earth-grid
                 order: global.feature_order
                 # color: [0.985,0.995,1.000]
-                color: [0.960,0.960,0.960]
+                color: [0.950,0.950,0.950]
 
     water:
         data: { source: mapzen, layer: water }
@@ -257,7 +257,7 @@ layers:
                 style: water-grid
                 order: global.feature_order
                 # color: [0.985,0.995,1.000]
-                color: [0.910,0.910,0.910]
+                color: [0.900,0.900,0.900]
 
         lakes:
             filter:
@@ -283,13 +283,13 @@ layers:
                     - { $zoom: { min: 15 } }
             draw:
                 polygons:
-                    color: [0.910,0.910,0.910]
+                    color: [0.900,0.900,0.900]
 
         other-water-areas:
             filter: { not: { kind: [ocean, lake, water, reservoir] }, $zoom: { min: 11 }, area: { min: 100 } }
             draw:
                 polygons:
-                    color: [0.910,0.910,0.910]
+                    color: [0.900,0.900,0.900]
 
         water-boundary-ocean:
             filter: { boundary: true, kind: ocean, $zoom: { min: 1 } }
