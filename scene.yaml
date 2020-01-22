@@ -772,7 +772,7 @@ layers:
                     lines:
                         dash: [7, 2.5]
                         dash_background_color: [0.960,0.960,0.960]
-                        color: [0.750,0.750,0.750]
+                        color: [0.700,0.700,0.700]
                         width: [[14, 0px], [18, 1px]]
             footway:
                 filter: { kind_detail: footway }
@@ -780,7 +780,7 @@ layers:
                     lines:
                         dash: [7, 2.5]
                         dash_background_color: [0.960,0.960,0.960]
-                        color: [0.750,0.750,0.750]
+                        color: [0.700,0.700,0.700]
                         width: [[14, 0px], [18, 1px]]
             #     bridge:
             #         filter: { is_bridge: true }
